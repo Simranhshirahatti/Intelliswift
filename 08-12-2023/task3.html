@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Count per Language</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+
+<button onclick="displayMovieCount()">Show Movie Count</button>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th data-label="Language">Language</th>
+      <th data-label="Count">Count</th>
+    </tr>
+  </thead>
+  <tbody id="output">
+  </tbody>
+</table>
+
+<script>
+    function countMoviesPerLanguage(movies, languages) {
+        const languageMap = new Map();
+        const movieCountMap = new Map();
+
+        languages.forEach(language => {
+            languageMap.set(language.iso_639_1, language);
+        });
+
+        movies.forEach(movie => {
+            const languageCode = movie.originalLanguage;
+            movieCountMap.set(languageCode, (movieCountMap.get(languageCode) || 0) + 1);
+        });
+
+        return { languageMap, movieCountMap };
+    }
+
+    function displayMovieCount() {
+        const movies = [
+            { title: 'Movie 1', originalLanguage: 'en' },
+            { title: 'Movie 2', originalLanguage: 'es' },
+            { title: 'Movie 3', originalLanguage: 'en' },
+        ];
+
+        const languages = [
+            {
+                "iso_639_1": "en",
+                "english_name": "English",
+                "name": "English"
+            },
+            {
+                "iso_639_1": "es",
+                "english_name": "Spanish",
+                "name": "Español"
+            },
+        ];
+
+        const { languageMap, movieCountMap } = countMoviesPerLanguage(movies, languages);
+        const outputTableBody = document.getElementById('output');
+        
+        let htmlOutput = '';
+        
+        movieCountMap.forEach((count, languageCode) => {
+            const language = languageMap.get(languageCode);
+            htmlOutput += `<tr><td data-label="Language">${language.english_name} (${language.name})</td><td data-label="Count">${count}</td></tr>`;
+        });
+        
+        outputTableBody.innerHTML = htmlOutput;
+    }
+</script>
+
+</body>
+</html>

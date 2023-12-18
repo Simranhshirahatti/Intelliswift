@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Count per Language</title>
+</head>
+<body>
+
+<button onclick="displayMovieCount()">Show Movie Count</button>
+<div id="output"></div>
+
+<script>
+    function countMoviesPerLanguage(movies) {
+        const movieCountMap = new Map();
+
+        movies.forEach(movie => {
+            const language = movie.originalLanguage;
+            movieCountMap.set(language, (movieCountMap.get(language) || 0) + 1);
+        });
+
+        return movieCountMap;
+    }
+
+    function displayMovieCount() {
+        const movies = [
+            { title: 'Movie 1', originalLanguage: 'en' },
+            { title: 'Movie 2', originalLanguage: 'es' },
+            { title: 'Movie 3', originalLanguage: 'en' },
+            { title: 'Movie 4', originalLanguage: 'es' },
+            { title: 'Movie 5', originalLanguage: 'es' },
+            { title: 'Movie 6', originalLanguage: 'en' },
+            { title: 'Movie 7', originalLanguage: 'fr' },
+            { title: 'Movie 8', originalLanguage: 'fr' },
+            { title: 'Movie 9', originalLanguage: 'fr' },
+            { title: 'Movie 10', originalLanguage: 'en' },
+
+
+
+        ];
+
+        const movieCountMap = countMoviesPerLanguage(movies);
+        const outputDiv = document.getElementById('output');
+        
+        let htmlOutput = '<h2>Movie Count per Language</h2>';
+        htmlOutput += '<ul>';
+        
+        movieCountMap.forEach((count, language) => {
+            htmlOutput += `<li>${language}: ${count}</li>`;
+        });
+        
+        htmlOutput += '</ul>';
+        outputDiv.innerHTML = htmlOutput;
+    }
+</script>
+
+</body>
+</html>

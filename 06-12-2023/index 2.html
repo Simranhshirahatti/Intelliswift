@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Information</title>
+</head>
+<body>
+
+<button onclick="displayCompanyInfo()">click to view companies</button>
+<ol id="companyInfoList"></ol>
+
+<script>
+  const companies = [
+    { name: 'Intelliswift', hq: 'Newark, CA', indiaLocations: ['Pune', 'Bengaluru'] },
+    { name: 'Salesforce', hq: 'San Francisco, CA', indiaLocations: ['Hyderabad', 'Bengaluru', 'Mumbai', 'Gurugram', 'Jaipur'] }
+  ];
+
+  function displayCompanyInfo() {
+    const companyInfoList = document.getElementById('companyInfoList');
+    companyInfoList.innerHTML = ''; // Clear previous content
+
+    companies.forEach(company => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${company.name} - ${company.hq} - ${company.indiaLocations.join(', ')}`;
+      companyInfoList.appendChild(listItem);
+    });
+  }
+</script>
+
+</body>
+</html>
