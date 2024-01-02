@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="filterContainer">
+        <input type="text" id="searchInput" placeholder="Search movie or cast member...">
+        <button onclick="applyFilters()">Search</button>
+    </div>
+
+<div id="categorySelection">
+    <input type="radio" id="hindiRadio" name="movieCategory" value="hindi" checked>
+    <label for="hindiRadio">Hindi</label>
+
+    <input type="radio" id="internationalRadio" name="movieCategory" value="international">
+    <label for="internationalRadio">International</label>
+
+    <input type="radio" id="allRadio" name="movieCategory" value="allmovies">
+    <label for="allRadio">All</label>
+</div>
+
+<div id="decadeSelection">
+    <select id="decades"></select>
+</div>
+
+<div id="genreSelection">
+    <!-- Genres checkboxes will be populated dynamically from JavaScript -->
+</div>
+
+<!-- Add this within your body tags, perhaps before or after the movie dropdown -->
+
+
+
+<h1>Select a Movie</h1>
+<select id="movies" onchange="movieSelected()">select the movie</select>
+
+<div>
+    <hr/>
+    <h1 id="title"></h1>
+    <div id="overview"></div>
+    <hr/>
+    <div class="ui grid">
+        <div class="four wide column" id="moviePoster"></div>
+        <div class="twelve wide column" id="castInfo"></div>
+    </div>
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container styles */
+#filterContainer {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+    width: 65%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #007BFF;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Category Selection styles */
+#categorySelection {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input[type="radio"] {
+    margin-right: 15px;
+    transform: translateY(2px); /* Aligns the radio button with its label */
+}
+
+label {
+    margin-right: 20px; /* Provides some spacing between radio button and its label */
+}
+
+
+/* Decade Selection styles */
+#decadeSelection {
+    margin-bottom: 30px;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #007BFF;
+}
+
+/* Movie Display styles */
+h1 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#overview {
+    margin-bottom: 25px;
+}
+
+.ui.grid {
+    margin-top: 25px;
+}
+
+.ui.grid > .column {
+    padding: 15px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    input[type="text"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    select {
+        width: 100%;
+    }
+}
